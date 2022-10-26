@@ -54,7 +54,7 @@ namespace Catalog.Controllers
         public ActionResult<ItemDto> UpdateItem(Guid id,UpdateItemDto itemDto)
         {
             var existingItem = repository.GetItem(id);
-            if (existingItem != null)
+            if (existingItem == null)
             {
                 return NotFound();
             }
@@ -71,7 +71,7 @@ namespace Catalog.Controllers
         public ActionResult<ItemDto> DeleteItem(Guid id)
         {
             var existingItem = repository.GetItem(id);
-            if (existingItem != null)
+            if (existingItem == null)
             {
                 return NotFound();
             }            
